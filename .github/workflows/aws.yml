@@ -2,9 +2,9 @@ name: Deploy to Amazon ECS
 on:
   push:
     branches:
-      - master
+      - main
 env:
-  AWS_REGION: us-east-2
+  AWS_REGION: ap-south-1
   ECS_CLUSTER: app_cluster
   CONTAINER_NAME: app
   ECS_SERVICE: app_service
@@ -24,7 +24,7 @@ jobs:
         with:
           aws-access-key-id: ""
           aws-secret-access-key: ""
-          aws-region: ""
+          aws-region: ${{ env.AWS_REGION }}
 
       - name: Login to Amazon ECR
         id: login-ecr
